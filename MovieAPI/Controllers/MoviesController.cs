@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using MovieAPI.Data;
 using Microsoft.AspNetCore.Http;
 using MovieAPI.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace MovieAPI.Controllers
 {
@@ -20,6 +21,7 @@ namespace MovieAPI.Controllers
         }
 
         // GET: api/Movies
+        // [DisableCors]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> GetMovies()
         {
