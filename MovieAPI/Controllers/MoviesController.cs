@@ -35,6 +35,19 @@ namespace MovieAPI.Controllers
         {
             return (_context.Movie?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+        // GET: api/Movies/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Movie>> GetMovie(int id)
+        {
+            var movie = await _context.Movie.FindAsync(id);
+
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            return movie;
+        }
     }
 }
 
